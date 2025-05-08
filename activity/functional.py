@@ -2,16 +2,21 @@
 # Write a function that takes in a list of words and returns the shortest
 # one. (assume no ties)
 
-def shortest_word(words):
-    return min(words, key=len)
+# def shortest_word(words):
+#     return min(words, key=len)
 
 # SUPER CHALLENGE: use functools.reduce
 # Only try this after completing the rest of the activity
 # You will need to research the use of the functools.reduce function
-
-# def shortest_word(words):
-#     from functools import reduce
-#     pass    
+def find_shorter_word(word1, word2):
+    if len(word1) < len(word2):
+        return word1
+    else:
+        return word2
+    
+def shortest_word(words):
+    from functools import reduce
+    return reduce(find_shorter_word, words)
 
 
 # Wave 2
